@@ -43,7 +43,10 @@ services:
         protocol: tcp
         mode: host
     deploy:
-      mode: global
+      replicas: 1
+      placement:
+        constraints:
+        - node.role == manager
 
 networks:
   mynetwork:
